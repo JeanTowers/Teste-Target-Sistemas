@@ -5,17 +5,19 @@ const faturamento = {
     "ES": 27165.48,
     "Outros": 19849.53
 } 
-
+// Tranformando em Objeto
 const objFaturamento = Object.values(faturamento)
 
+// Pegando o Total de Faturamento
 const total = objFaturamento.reduce((total, atual) => total + atual, 0)
 
+
 const percentuais = {};
-
-
+// Percorrendo cada estado e Calculando sua porcentagem
 for (const estado in faturamento) {
     const percentual = (faturamento[estado] / total) * 100
     percentuais[estado] = (percentual.toFixed(2) + "%")
 }
 
+// Informando os Percentuais
 console.log(percentuais)
